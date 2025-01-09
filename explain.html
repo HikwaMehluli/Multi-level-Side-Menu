@@ -1,0 +1,237 @@
+I have a bootstrap "Multi Level Menu" developed by Mehluli Hikwa (https://github.com/HikwaMehluli). I would love for you to analyze the code and write a short 400-600 word document with the following pointers:
+    - I first used bootstrap in 2012 when it was on version 2, at that time the concept of responsive css frameworks had just took-off. Over the years I stopped creating sites from the ground up and persused creating my own responsive approach for each project. Fast forward 2025, a client resently tasked me to use Bootstrap to develop a UI for their project.
+    - After revisiting Bootstrap after over 8 years of not using it there was a subtle learning curve. My only disappointment was seeing it still used dropdown/accordion styled menus hence why I created this simple mobile freindly "Multi Level Menu" which slides horizontally.
+    - It is embedded inside the .offCanvas bootstrap sidebar menu.
+    - Add a short explanation of how the menu works.
+
+    Each pointer should have a title and please use not so technical words. Below is the HTML file.
+
+
+
+    _____________________________
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Level Menu | by thatAfro</title>
+    <meta name="description"
+        content="A simple Multi Level Menu. Bootstrap 5.3.3 CSS used for plain styling but is not needed - if you good at styling.">
+    <meta name="author" content="Mehluli Hikwa" />
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+        /* width */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #efefef;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #0b074a;
+            transition: all .5s;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d79e0f;
+        }
+
+
+
+        .logo {
+            height: 40px;
+        }
+
+
+        .menu-container {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 100vh;
+            background: var(--bs-white);
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        nav.menu-list {
+            height: 100%;
+            overflow-y: scroll;
+            overflow-x: hidden;
+
+            li {
+                list-style: none;
+            }
+        }
+
+        ul.submenu {
+            background: var(--bs-white);
+            position: absolute;
+            top: 0;
+            left: 100%;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            transition: all 0.5s ease;
+            transform: translateX(0);
+            visibility: hidden;
+        }
+
+        ul.submenu.active {
+            transform: translateX(-100%);
+            visibility: visible;
+        }
+
+        li>a.menu-item {
+            border-bottom: 1px solid var(--bs-gray-300);
+            color: var(--bs-dark);
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            transition: all .5s;
+
+            &:hover {
+                background-color: var(--bs-gray-200);
+            }
+        }
+
+        span.has-submenu::after {
+            content: '\F285';
+            background-color: var(--bs-gray-200);
+            border-left: 1px solid var(--bs-gray-300);
+            color: black;
+            font-family: "bootstrap-icons";
+            font-size: 1.25rem;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50px;
+            height: 48px;
+            padding: 10px 16px;
+            transition: all .5s;
+        }
+
+        li>a.menu-item.go-back {
+            background-color: var(--bs-gray-200);
+            padding-left: 0.75rem;
+        }
+
+        li>a.menu-item.go-back::before {
+            content: '\F284';
+            font-family: "bootstrap-icons";
+            margin-right: 0.5rem;
+            font-size: 1.25rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu-container">
+        <nav class="menu-list">
+            <ul class="list-group list-group-flush" id="rootMenu">
+                <li><a href="#0" class="menu-item">Home</a></li>
+                <li>
+                    <a href="#0" class="menu-item">Services
+                        <span class="has-submenu" data-submenu="services"></span>
+                    </a>
+                </li>
+                <li><a href="#0" class="menu-item">About Me</a></li>
+                <li><a href="#0" class="menu-item">Get In Touch</a></li>
+            </ul>
+
+            <ul class="submenu" id="services">
+                <li><a href="#0" class="menu-item go-back">Go Back</a></li>
+                <li><a href="#0" class="menu-item">Product 1</a></li>
+                <li><a href="#0" class="menu-item">Product 2</a></li>
+                <li>
+                    <a href="#0" class="menu-item">Categories
+                        <span class="has-submenu" data-submenu="categories"></span>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="submenu" id="categories">
+                <li><a href="#0" class="menu-item go-back">Go Back</a></li>
+                <li><a href="#0" class="menu-item">Category A</a></li>
+                <li>
+                    <a href="#0" class="menu-item">Category B
+                        <span class="has-submenu" data-submenu="categoryB"></span>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="submenu" id="categoryB">
+                <li><a href="#0" class="menu-item go-back">Go Back</a></li>
+                <li><a href="#0" class="menu-item">Sub B1</a></li>
+                <li><a href="#0" class="menu-item">Sub B2</a></li>
+                <li>
+                    <a href="#0" class="menu-item">Sub B3
+                        <span class="has-submenu" data-submenu="subB3"></span>
+                    </a>
+                </li>
+                <li><a href="#0" class="menu-item">Sub B4</a></li>
+                <li><a href="#0" class="menu-item">Sub B5</a></li>
+                <li><a href="#0" class="menu-item">Sub B6</a></li>
+                <li><a href="#0" class="menu-item">Sub B7</a></li>
+                <li><a href="#0" class="menu-item">Sub B8</a></li>
+                <li><a href="#0" class="menu-item">Sub B9</a></li>
+                <li><a href="#0" class="menu-item">Sub B10</a></li>
+                <li><a href="#0" class="menu-item">Sub B11</a></li>
+                <li><a href="#0" class="menu-item">Sub B12</a></li>
+                <li><a href="#0" class="menu-item">Sub B13</a></li>
+            </ul>
+
+            <ul class="submenu" id="subB3">
+                <li><a href="#0" class="menu-item go-back">Go Back</a></li>
+                <li><a href="#0" class="menu-item">Sub B3a</a></li>
+                <li><a href="#0" class="menu-item">Sub B3b</a></li>
+            </ul>
+        </nav>
+    </div>
+
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuContainer = document.querySelector('.menu-container');
+
+            // Handle menu item clicks
+            menuContainer.addEventListener('click', function (awkih) {
+                const target = awkih.target;
+
+                if (target.classList.contains('has-submenu')) {
+                    awkih.preventDefault();
+                    const submenuId = target.dataset.submenu;
+                    const submenu = document.getElementById(submenuId);
+                    submenu.classList.add('active');
+                }
+
+                if (target.classList.contains('go-back')) {
+                    awkih.preventDefault();
+                    const currentSubmenu = target.closest('.submenu');
+                    currentSubmenu.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

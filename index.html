@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Level Menu | by thatAfro</title>
+    <meta name="description"
+        content="A simple Multi Level Menu. Bootstrap 5.3.3 CSS used for plain styling but is not needed - if you good at styling.">
+    <meta name="author" content="Mehluli Hikwa" />
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="./img/thatAfro.svg" class="img-fluid" alt="thatAfro Logo"
+                    style="height: 40px; padding-right: 20px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.behance.net/HikwaMehluli">Design Folio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://thatafro.netlify.app/">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/HikwaMehluli">Github</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                            Open Menu
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <img class="logo img-fluid" src="./img/thatAfro.svg" alt="thatAfro Logo">
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="menu-container">
+            <nav class="menu-list">
+                <ul class="list-group list-group-flush" id="rootMenu">
+                    <li><a href="#0" class="menu-item">Home</a></li>
+                    <li>
+                        <a href="#0" class="menu-item">Services
+                            <span class="has-submenu" data-submenu="services"></span>
+                        </a>
+                    </li>
+                    <li><a href="https://thatafro.netlify.app/" class="menu-item">About Me</a></li>
+                    <li>
+                        <a href="#0" class="menu-item">Get In Touch
+                            <span class="has-submenu" data-submenu="contact"></span>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="submenu" id="services">
+                    <li><a href="#0" class="menu-item go-back">Go Back</a></li>
+                    <li>
+                        <a href="#0" class="menu-item">Design
+                            <span class="has-submenu" data-submenu="design"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#0" class="menu-item">Development
+                            <span class="has-submenu" data-submenu="development"></span>
+                        </a>
+                    </li>
+                    <li><a href="#0" class="menu-item">Video Production</a></li>
+                    <li>
+                        <a href="#0" class="menu-item">Virtual Reality (VR)
+                            <span class="has-submenu" data-submenu="vr"></span>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="submenu" id="design">
+                    <li><a href="#0" class="menu-item go-back">Go Back</a></li>
+                    <li>
+                        <a href="#0" class="menu-item">Visual Identity
+                            <span class="has-submenu" data-submenu="visual-identity"></span>
+                        </a>
+                    </li>
+                    <li><a href="#0" class="menu-item">Brand Videos</a></li>
+                    <li>
+                        <a href="#0" class="menu-item">Content Strategy
+                            <span class="has-submenu" data-submenu="content-strategy"></span>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="submenu" id="visual-identity">
+                    <li><a href="#0" class="menu-item go-back">Go Back</a></li>
+                    <li><a href="#0" class="menu-item">Identity Design</a></li>
+                    <li><a href="#0" class="menu-item">Corporate Stationery & Wear</a></li>
+                    <li><a href="#0" class="menu-item">Graphic illustration</a></li>
+                    <li><a href="#0" class="menu-item">Package Design</a></li>
+                </ul>
+
+                <ul class="submenu" id="content-strategy">
+                    <li><a href="#0" class="menu-item go-back">Go Back</a></li>
+                    <li><a href="#0" class="menu-item">Social Media</a></li>
+                    <li><a href="#0" class="menu-item">Content Development</a></li>
+                    <li><a href="#0" class="menu-item">Videography & Motion Design</a></li>
+                </ul>
+
+                <ul class="submenu" id="development">
+                    <li><a href="#0" class="menu-item go-back">Go Back</a></li>
+                    <li><a href="#0" class="menu-item">UI/UX Design</a></li>
+                    <li><a href="#0" class="menu-item">Frontend development</a></li>
+                    <li><a href="#0" class="menu-item">Website Management</a></li>
+                </ul>
+
+                <ul class="submenu" id="vr">
+                    <li><a href="#0" class="menu-item go-back">Go Back</a></li>
+                    <li><a href="#0" class="menu-item">Virtual Reality Tours (WebVR)</a></li>
+                    <li><a href="#0" class="menu-item">360 Photography</a></li>
+                    <li><a href="#0" class="menu-item">VR Consultation</a></li>
+                </ul>
+
+                <ul class="submenu" id="contact">
+                    <li><a href="#0" class="menu-item go-back">Go Back</a></li>
+                    <li><a href="https://thatafro.netlify.app/start-a-project" target="_blank" class="menu-item">Get A
+                            Quote</a></li>
+                    <li><a href="mailto:mehlulihikwa@gmail.com" target="_blank" class="menu-item">Email Me</a></li>
+                    <li><a href="https://github.com/HikwaMehluli" target="_blank" class="menu-item">Github</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+
+    <div class="container px-4 py-5" id="custom-cards">
+        <h3>A Journey Through Bootstrap and Modern Menu Design</h3>
+        <p class="pb-2 border-bottom">Custom OffCanvas Sliding Menu</p>
+
+        <div class="col-12">
+            <h4>Revisiting Bootstrap After Eight Years: A Reflection</h4>
+            <p>I first used Bootstrap in 2012 when it was at version 2, during the early days when responsive CSS
+                frameworks were gaining traction. At that time, building websites with responsive layouts was a novel
+                concept. It revolutionized how developers approached web design, making it easier to ensure websites
+                worked on a wide variety of devices. Over the years, I gradually moved away from Bootstrap and started
+                creating custom responsive solutions for each project. However, fast forward to 2025, a client tasked me
+                with using Bootstrap to develop a user interface for their project. Reconnecting with Bootstrap after
+                eight years brought back fond memories but also introduced a few learning curves.</p>
+
+            <h4>The Subtle Learning Curve</h4>
+            <p>After such a long break from Bootstrap, I was surprised to see how the framework had evolved. While it
+                was familiar, there were still subtle differences that took some time to get used to. One of the most
+                noticeable features was how Bootstrap handled dropdowns and accordions for navigation menus. While
+                functional, these menus don't always provide the smoothest mobile experience. This is what inspired the
+                creation of this horizontal sliding menu - a more modern, mobile-first approach that feels natural on
+                touchscreens and aligns better with how people use their phones today.</p>
+
+            <h4>A Fresh Take on Sidebar Navigation</h4>
+            <p>This menu system cleverly integrates with Bootstrap's offCanvas sidebar component, creating a harmonious
+                blend of old and new. Instead of forcing users to navigate through nested dropdowns that can become
+                unwieldy on mobile devices, it provides a clean, iOS-like sliding navigation experience that feels
+                native to mobile devices while remaining perfectly usable on desktop.</p>
+
+            <h4>How the Magic Works</h4>
+            <p>The menu's operation is surprisingly straightforward. Think of it like a deck of cards laid side by side
+                - when you select a menu item with submenus, the current view slides left, revealing the submenu items,
+                much like how mobile apps transition between screens. This is achieved through some clever CSS
+                transforms and visibility toggling.</p>
+            <p>The menu keeps track of where you are using a simple system - when you click a menu item with a submenu,
+                it activates the corresponding submenu panel with a smooth sliding animation. The "Go Back" button at
+                the top of each submenu helps users retrace their steps, making navigation intuitive and user-friendly.
+            </p>
+            <p>What makes this implementation particularly elegant is its minimal reliance on JavaScript. Most of the
+                heavy lifting is done by CSS, using transforms for the sliding animation and visibility properties to
+                manage what's shown and hidden. This results in smooth performance and reliable operation across
+                different devices and browsers.</p>
+        </div>
+
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+            aria-controls="offcanvasExample">
+            Open Menu
+        </button>
+    </div>
+
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>

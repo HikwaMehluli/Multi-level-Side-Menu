@@ -1,0 +1,114 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #efefef;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #0b074a;
+	transition: all .5s;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #d79e0f;
+}
+
+
+
+.logo {
+	height: 40px;
+}
+
+
+.menu-container {
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background: var(--bs-white);
+	box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+	z-index: 1000;
+	overflow: hidden;
+}
+
+nav.menu-list {
+	height: 100%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	
+	li {
+		list-style: none;
+	}
+}
+
+ul.submenu {
+	background: var(--bs-white);
+	position: absolute;
+	top: 0;
+	left: 100%;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	transition: all 0.5s ease;
+	transform: translateX(0);
+	visibility: hidden;
+}
+
+ul.submenu.active {
+	transform: translateX(-100%);
+	visibility: visible;
+}
+
+li>a.menu-item {
+	border-bottom: 1px solid var(--bs-gray-300);
+	color: var(--bs-dark);
+	position: relative;
+	display: flex;
+	align-items: center;
+	padding: 0.75rem 1rem;
+	text-decoration: none;
+	transition: all .5s;
+
+	&:hover {
+		background-color: var(--bs-gray-200);
+	}
+}
+
+span.has-submenu::after {
+	content: '\F285';
+	background-color: var(--bs-gray-200);
+	border-left: 1px solid var(--bs-gray-300);
+    color: black;
+    font-family: "bootstrap-icons";
+	font-size: 1.25rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 48px;
+    padding: 10px 16px;
+	transition: all .5s;
+}
+
+li>a.menu-item.go-back {
+	background-color: var(--bs-gray-200);
+	padding-left: 0.75rem;
+}
+
+li>a.menu-item.go-back::before {
+	content: '\F284';
+	font-family: "bootstrap-icons";
+	margin-right: 0.5rem;
+	font-size: 1.25rem;
+}
