@@ -68,6 +68,7 @@ ul.submenu {
 ul.submenu.active {
 	transform: translateX(-100%);
 	visibility: visible;
+	z-index: 2;
 }
 
 li>a.menu-item {
