@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', function () {
 			const submenuId = target.dataset.submenu;
 			const submenu = document.getElementById(submenuId);
 			submenu.classList.add('active');
+
+			// console.log('This is submenu ID for ' + submenuId);
+			// console.log(submenu);
 		}
 
 		if (target.classList.contains('go-back')) {
